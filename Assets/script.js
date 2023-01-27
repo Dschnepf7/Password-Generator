@@ -58,14 +58,8 @@
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
 
-var hasNumeric = confirm("Click OK to confirm including numeric characters.");
-var hasLower = confirm("Click OK to confirm including lower-case characters. ");
-var hasUpper = confirm("Click OK to confirm including upper-case characters.");
-var hasSpecial = confirm("Click OK to confirm including Special characters.");
-var generateBtn = document.querySelector("#generate");
-
-
-generateBtn.addEventListener('click', writePassword());
+generateBtn = document.getElementById("generate");
+generateBtn.addEventListener("click", writePassword);
 
 function writePassword(){
   var passwordLength = prompt("How many characters would you like your password to be?");
@@ -75,26 +69,37 @@ function writePassword(){
   if(passwordLength > 129){
     alert("Password length must be less thatn 129 characters.");
   }
-}
-if(hasNumeric === false && hasLower === false && hasUpper === false && hasSpecial === false){
-  alert('Must select at least one character type');
-}
-
-var userPassword = {
-  length: passwordLength,
-  hasNumeric: hasNumeric,
-  hasLower: hasLower,
-  hasUpper: hasUpper,
-  hasSpecial: hasSpecial,
-}
-return userPassword;
-
-function generatePassword() {
-  var userOptions = getOptions();
-  var possibleChars = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\",":","^",","{",".","|","}","~","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  var result = [];
-  var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-  if(userOptions.hasNumeric === true){
-  possibleChars = possibleChars.concat(numericCharacters);
+  var hasNumeric = confirm("Click OK to confirm including numeric characters.");
+  var hasLower = confirm("Click OK to confirm including lower-case characters. ");
+  var hasUpper = confirm("Click OK to confirm including upper-case characters.");
+  var hasSpecial = confirm("Click OK to confirm including Special characters.");
+  if(hasNumeric === false && hasLower === false && hasUpper === false && hasSpecial === false){
+    alert('Must select at least one character type');
   }
+  var userPassword = {
+    length: passwordLength,
+    hasNumeric: hasNumeric,
+    hasLower: hasLower,
+    hasUpper: hasUpper,
+    hasSpecial: hasSpecial,
+    
+  }
+  return userPassword;
+
+  function generatePassword() {
+    var userOptions = getOptions();
+    var possibleChars = ["!","#","$","%","&","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[",":","^","{",".","|","}","~","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+    var result = [];
+    var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    if(userOptions.hasNumeric === true){
+    possibleChars = possibleChars.concat(numericCharacters);
+    }
 }
+}
+
+
+
+
+
+
+
