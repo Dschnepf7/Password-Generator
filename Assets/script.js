@@ -11,7 +11,7 @@
     
 //then user confirms for password criteria
   //var hasNumeric = confirm("Click OK to confirm including numeric characters.");
-  //var hasLower = confirm("Click OK to confirm including Lower characters.");
+  //var hasLower = confirm("Click OK to confirm including lowercase characters.")
   //var hasUpper = confirm("Click OK to confirm including Upper characters.");
   //var hasSpecial = confirm("Click OK to confirm including Special characters.");
 
@@ -57,3 +57,44 @@
 
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
+
+var hasNumeric = confirm("Click OK to confirm including numeric characters.");
+var hasLower = confirm("Click OK to confirm including lower-case characters. ");
+var hasUpper = confirm("Click OK to confirm including upper-case characters.");
+var hasSpecial = confirm("Click OK to confirm including Special characters.");
+var generateBtn = document.querySelector("#generate");
+
+
+generateBtn.addEventListener('click', writePassword());
+
+function writePassword(){
+  var passwordLength = prompt("How many characters would you like your password to be?");
+  if(passwordLength < 8){
+    alert("Password length must be at least 8 characters.");
+  }
+  if(passwordLength > 129){
+    alert("Password length must be less thatn 129 characters.");
+  }
+}
+if(hasNumeric === false && hasLower === false && hasUpper === false && hasSpecial === false){
+  alert('Must select at least one character type');
+}
+
+var userPassword = {
+  length: passwordLength,
+  hasNumeric: hasNumeric,
+  hasLower: hasLower,
+  hasUpper: hasUpper,
+  hasSpecial: hasSpecial,
+}
+return userPassword;
+
+function generatePassword() {
+  var userOptions = getOptions();
+  var possibleChars = [];
+  var result = [];
+  var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  if(userOptions.hasNumeric === true){
+  possibleChars = possibleChars.concat(numericCharacters);
+  }
+}
