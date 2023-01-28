@@ -98,3 +98,11 @@ You are required to submit the following for review:
 
 - - -
 © 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+## Credit
+
+Resources Used
+
+* Worked with a study group
+
+* Used TA Pseudocode
