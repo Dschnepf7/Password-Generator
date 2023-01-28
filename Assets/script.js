@@ -67,7 +67,6 @@ var  numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 
 generateBtn = document.getElementById("generate");
-generateBtn.addEventListener("click", writePassword);
 
 function writePassword(){
   var passwordLength = prompt("How many characters would you like your password to be?");
@@ -105,7 +104,7 @@ function writePassword(){
 
 
 function generatePassword() {
-  var userOptions = getOptions();
+  var userOptions = writePassword();
   var possibleChars = [];
   var guaranteedChars = [];
   var remainingChars = [];
@@ -137,9 +136,13 @@ function generatePassword() {
   var finalPassword = almostPass.join("");
 
   return finalPassword;
-
 }
 
+function displayPassword(){
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.innerHTML = password;
+}
 
-
+generateBtn.addEventListener("click", displayPassword);
 
