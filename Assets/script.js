@@ -65,17 +65,22 @@ function writePassword(){
   var passwordLength = prompt("How many characters would you like your password to be?");
   if(passwordLength < 8){
     alert("Password length must be at least 8 characters.");
+    prompt("How many characters would you like your password to be?");
   }
+
   if(passwordLength > 129){
     alert("Password length must be less thatn 129 characters.");
+    prompt("How many characters would you like your password to be?");
   }
   var hasNumeric = confirm("Click OK to confirm including numeric characters.");
   var hasLower = confirm("Click OK to confirm including lower-case characters. ");
   var hasUpper = confirm("Click OK to confirm including upper-case characters.");
   var hasSpecial = confirm("Click OK to confirm including Special characters.");
+
   if(hasNumeric === false && hasLower === false && hasUpper === false && hasSpecial === false){
-    alert('Must select at least one character type');
+    alert('Must select at least one character type')
   }
+
   var userPassword = {
     length: passwordLength,
     hasNumeric: hasNumeric,
